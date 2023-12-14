@@ -11,7 +11,12 @@ const Editor = () => {
 				<FiMinimize2 />
 				<FiMaximize2 />
 			</div>
-			<textarea className="Editor" type="text"></textarea>
+			<textarea
+				className="Editor"
+				id="editor"
+				type="text"
+				placeholder="Enter your markdown here."
+			></textarea>
 		</div>
 	);
 };
