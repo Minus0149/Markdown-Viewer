@@ -4,14 +4,18 @@ import { FiMaximize2, FiMinimize2 } from "react-icons/fi";
 
 const Previewer = () => {
 	return (
-		<div className="Previewer">
+		<div className="Previewer-container">
 			<div className="Toolbar">
-				<FaMarkdown />
-				<span>PREVIEWER</span>
-				<FiMinimize2 />
-				<FiMaximize2 />
+				<div>
+					<FaMarkdown className="Icon" />
+					<span>PREVIEWER</span>
+				</div>
+				<div>
+					<FiMinimize2 className="Icon" />
+					<FiMaximize2 className="Icon" />
+				</div>
 			</div>
-			<div className="preview" id="preview"></div>
+			<div className="Preview" id="preview"></div>
 		</div>
 	);
 };

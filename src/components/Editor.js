@@ -6,10 +6,14 @@ const Editor = () => {
 	return (
 		<div className="Editor-container">
 			<div className="Toolbar">
-				<FaRegEdit />
-				<span>EDITOR</span>
-				<FiMinimize2 />
-				<FiMaximize2 />
+				<div>
+					<FaRegEdit className="Icon" />
+					<span>EDITOR</span>
+				</div>
+				<div>
+					<FiMinimize2 className="Icon" />
+					<FiMaximize2 className="Icon" />
+				</div>
 			</div>
 			<textarea
 				className="Editor"
