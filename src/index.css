@@ -1,7 +1,5 @@
 * {
 	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
 }
 
 body {
@@ -18,17 +16,22 @@ code {
 		monospace;
 }
 
-.App {
-	width: 100vw;
+html {
 	height: 100vh;
 	background-color: #a3b18a;
+}
+
+.App {
+	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding-bottom: 20px;
 }
 
 .Toolbar {
-	width: 500px;
+	width: 100%;
 	background: #344e41;
 	color: #e6e4dd;
 	font-weight: 700;
@@ -37,16 +40,23 @@ code {
 	align-items: center;
 	padding: 5px;
 }
+.Previewer-container .Toolbar {
+	width: 100%;
+}
 
 .Icon {
 	margin: 3px 10px 0px 5px;
 	font-size: 1.2rem;
 }
 
+.Editor-container {
+	width: 600px;
+}
+
 .Editor {
 	resize: vertical;
 	min-height: 100px;
-	width: 500px;
+	width: 100%;
 	height: 200px;
 	background-color: #dad7cd;
 	font-size: 0.875rem;
@@ -60,12 +70,12 @@ code {
 }
 
 .Previewer-container {
+	width: 800px;
+	height: auto;
 	margin-top: 30px;
 }
 
 .Preview {
-	width: 500px;
-	height: auto;
 	background-color: #dad7cd;
 }
 
@@ -76,9 +86,8 @@ code {
 	border-top: none;
 }
 
-h1 {
+.heading {
 	color: #e6e4dd;
-	padding: 15px 5px;
 	text-shadow: 2px 2px 2px #344e41;
 }
 
@@ -92,4 +101,73 @@ h1 {
 	position: relative;
 	bottom: 3.6px;
 	letter-spacing: 1px;
+}
+
+#preview {
+	padding: 0.5rem 1rem;
+}
+#preview blockquote {
+	border-left: 3px solid #224b4b;
+	color: #224b4b;
+	padding-left: 5px;
+	margin-left: 25px;
+}
+#preview > p > code {
+	padding: 3px;
+}
+#preview code {
+	background: white;
+	font-size: 0.875rem;
+	font-weight: bold;
+}
+#preview pre {
+	display: block;
+	overflow: auto;
+	background: white;
+	padding: 5px;
+	line-height: 1.2;
+}
+#preview h1 {
+	border-bottom: 2px solid #224b4b;
+}
+#preview h2 {
+	border-bottom: 1px solid #224b4b;
+}
+#preview table {
+	border-collapse: collapse;
+}
+#preview td,
+#preview th {
+	border: 2px solid #224b4b;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+#preview img {
+	display: block;
+	max-width: 90%;
+	margin: 2rem auto;
+}
+
+@media screen and (max-width: 850px) {
+	.Previewer-container {
+		max-width: 630px;
+	}
+
+	.Editor-container {
+		max-width: 550px;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	body {
+		margin: 5px 0;
+	}
+
+	.Editor-container {
+		width: 80vw;
+		margin: 0 auto;
+	}
+	.Previewer-container {
+		width: 90vw;
+	}
 }

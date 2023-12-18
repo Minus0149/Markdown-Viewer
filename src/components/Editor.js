@@ -2,7 +2,10 @@ import React from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { FiMinimize2, FiMaximize2 } from "react-icons/fi";
 
-const Editor = () => {
+const Editor = (props) => {
+	const handleChange = (e) => {
+		props.setMarkdown(e.target.value);
+	};
 	return (
 		<div className="Editor-container">
 			<div className="Toolbar">
@@ -20,6 +23,8 @@ const Editor = () => {
 				id="editor"
 				type="text"
 				placeholder="Enter your markdown here."
+				value={props.markdown}
+				onChange={handleChange}
 			></textarea>
 		</div>
 	);
