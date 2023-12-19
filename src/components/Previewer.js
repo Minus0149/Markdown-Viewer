@@ -1,10 +1,10 @@
 import $ from "jquery";
-import { marked } from "marked";
-import React from "react";
-import { FaMarkdown } from "react-icons/fa";
-import { FiMaximize2, FiMinimize2 } from "react-icons/fi";
+import React, { useEffect } from "react";
 import Prism from "prismjs";
 import "../prism.css";
+import { marked } from "marked";
+import { FaMarkdown } from "react-icons/fa";
+import { FiMaximize2, FiMinimize2 } from "react-icons/fi";
 
 const Previewer = (props) => {
 	const markedrRenderer = new marked.Renderer();
@@ -33,16 +33,43 @@ const Previewer = (props) => {
 		renderer: markedrRenderer,
 	});
 	$("#preview").html(preview);
+
+	useEffect(() => {
+		$("#preview").html(preview);
+	});
 	return (
-		<div className="Previewer-container">
+		<div
+			className={`Previewer-container ${
+				!props.maximized.editor && props.maximized.previewer && "maximized"
+			}`}
+		>
 			<div className="Toolbar">
 				<div>
 					<FaMarkdown className="Icon" />
 					<span>PREVIEWER</span>
 				</div>
 				<div>
-					<FiMinimize2 className="Icon" />
-					<FiMaximize2 className="Icon" />
+					{props.maximized.previewer && props.maximized.editor ? (
+						<FiMaximize2
+							className="Icon"
+							onClick={() =>
+								props.setMaximized({
+									editor: false,
+									previewer: true,
+								})
+							}
+						/>
+					) : (
+						<FiMinimize2
+							className="Icon"
+							onClick={() =>
+								props.setMaximized({
+									editor: true,
+									previewer: true,
+								})
+							}
+						/>
+					)}
 				</div>
 			</div>
 			<div className="Preview" id="preview" />
