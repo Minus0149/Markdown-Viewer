@@ -1,5 +1,5 @@
 import $ from "jquery";
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import Prism from "prismjs";
 import "../prism.css";
 import { marked } from "marked";
@@ -34,7 +34,7 @@ const Previewer = (props) => {
 	});
 	$("#preview").html(preview);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		$("#preview").html(preview);
 	});
 	return (
